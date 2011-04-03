@@ -1,8 +1,10 @@
+;Le nom du dossier du theme et le nom du fichier info doivent etre identiques.
+;Uniquement en minuscules et avec des underscores
 name = Starter_PF_D7
 description = Theme de base pour developpement des themes PF pour Drupal 7.Inspired by Basic.
-screenshot = images/screenshot.gif
+screenshot = screenshot.png
 core = "7.x"
-project = "PF"
+;project = "PF"
 engine = phptemplate
 
 regions[page_top] = Page top
