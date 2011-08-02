@@ -1,221 +1,326 @@
-/* Layout
- * ------
- * Using a negative margin technique, adapted from ZEN. The page is loaded by this order:
- *
- * 1. Header
- * 2. Content
- * 3. Navigation menus
- * 4. Sidebar Left
- * 5. Sideabr Right */
-/* remove 'auto' and the width to switch to a fluid width */
-/* line 15, ../sass/layout.sass */
-#page {
-  width: 960px;
-  margin: 0 auto;
+/**
+Layout de positionnement des blocs
+Inclusion des polices en css3
+ */
+@font-face {
+    font-family : "Arista";
+    src: url(../typos/Arista2.0_light.eot); /* IE */
+    src: local("Arista"), url(../typos/Arista2.0_light.ttf) format('truetype');/* non-IE */
 }
 
-/* Layout rules. (Disclaimer: do not change if you're not sure you know what you're doing.) */
-/* line 20, ../sass/layout.sass */
-#content {
-  float: left;
-  width: 100%;
-  margin-right: -100%;
-  padding: 0;
+/*------- COULEURS DE BASE POUR CSS---------------∕∕
+rouge #E2001A
+rose #E2007A
+orange #F29400
+bleu #00AAD2
+vert #C8D215
+jaune #F8E91B
+violet #93117E
+gris clair #9C9E9F
+gris fonce #606171
+orange fonce logo #DE603A
+∕∕------- FIN COULEURS ---------------*/
+
+
+html {
+ margin: 0;
+ padding: 0;
 }
 
-/* line 26, ../sass/layout.sass */
-.sidebar {
-  float: left;
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Trebuchet MS, Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: white;
+	color: gray;
+}
+ul,li,dl,dd,dt{
+    list-style-position: inside;
+}
+ /*------------------------------------------------------*
+  *--------    CSS BLOCS     						 ----*
+  *------------------------------------------------------*/
+
+
+#general{
+	margin:0 auto;
+	padding:0;
+	width:100%;
 }
 
-/* line 29, ../sass/layout.sass */
-#sidebar-second {
-  float: right;
+/*Haut de page  HEADER*/
+
+#header{
+	margin:0 auto;
+	padding:0;
+	width:990px;
+	height:auto;
+	background-color:transparent;
 }
 
-/* line 32, ../sass/layout.sass */
-#footer {
-  float: none;
-  clear: both;
+/*Contenu de page  CONTENT */
+
+#contentPage, #contentPageActu, .page {
+	margin:0 auto;
+	padding:0;
+	width: 990px;
+	background: white;/*couleur fond de page content*/
+}
+#content-inner,#left-content,#right-content{
+height: 100%;
+}
+/*//////SOUS ENTETE/////*/
+/*#content-top{
+	margin:0 auto;
+	padding:5px;
+	width:500px;
+	height:auto;
+	background-color: red;
+	}
+#left-content{}
+#middle-content{}
+#right-content{}
+*/
+/*/// debut des colonnes ///*/
+#left-content{
+	float:left;
+	position:relative;
+	background-color:transparent;
+	width:200px;
+	left:0px;
 }
 
-/* Layout Helpers */
-/* line 37, ../sass/layout.sass */
-#header,
-#footer,
-.mission,
-.breadcrumb,
-.node {
-  clear: both;
+/*/// partie de droite ///*/
+#right-content{
+	float:right;
+	position:relative;
+	background-color:#FF66CC;
+	width:200px;
+	right:0px;
+}
+/*inner content*/
+#content-inner{
+width: 990px;
+margin:0 auto;
+float:none;
+background-color: white;
+
+}
+/*///    partie du centre   ///*/
+#middle-content{
+    	float:left;
+	position:relative;
+	background-color:transparent;
+	width:555px !important;
+        width: 545px;
+	padding:5px;
+        margin: 0 auto;
+        border-left: 1px solid #ACC624;
+        border-right: 1px solid #F8E91B;
+ }
+
+/*PIED DE CONTENU*/
+#content-bottom{
+background:transparent;
+width:990px;
+margin: 0 auto;
 }
 
-/* Sidebars width
- * --------------
- * Changing the width of the sidebars is dead easy, just change the
- * values below corresponding to the sidebar you want to modify.
- * Make sure you keep negative values as negative values.
- * For example, if I want to increase the width of the left sidebar
- * to 300px, I would have to change each '190' to '300'. */
-/* line 55, ../sass/layout.sass */
-.two-sidebars .center,
-.sidebar-first .center {
-  margin-left: 190px;
+/*Bas de page  FOOTER*/
+
+#footer{
+	margin:0 auto;
+	padding:5px 0;
+	width:980px;
+	background: white url(../images/bg_footer.jpg) no-repeat bottom right;
+	text-align: left;
+	color: #9898a6;
+        height:45px;
 }
 
-/* line 59, ../sass/layout.sass */
-#sidebar-first {
-  width: 190px;
-  margin-right: -190px;
+#footer a{
+color: #9898a6;
+text-decoration:none;
+}
+#footer a:hover{
+color: #000000;
+}
+#bloc_stats{
+    color:red;
+    margin:0 auto;
+    width:600px;
+}
+/**----Fin FOOTER---***/
+#content-top{
+    margin:0 auto;
+    padding:5px;
+    width:970px;
+    height:auto;
+    background: white url(../images/fieldset_top.gif) repeat-x scroll left 11px;
+   }
+
+   /*--------------------------------------------
+---- LAYOUT POUR PAGE.TPL ET NODE.TPL OVERRIDE
+**********************************************
+-------------- GENERIQUE --------------------*/
+
+/*CUSTOM REGION DANS NODE.TPL*/
+#region_col_C1{
+       padding: 3px;
+}
+#region_col_C2{
+    padding: 3px;
+}
+#region_col_C3{
+    padding: 3px;
+}
+/*//////////////////////\\\\\\\\\\\\\\\\\\\\\\
+********** LAYOUT NODE.TPL OVERRIDE **********
+\\\\\\\\\\\\\\\\\\\\\\\//////////////////////*/
+/*//////////////// COLONNE 1 \\\\\\\\\\\\\\\\*/
+#colonne-1{
+    
+   
+}
+.col1_layout_200_570_200{
+    width: 200px;
+    float: left;
+}
+.col1_layout_330_all{}
+.col1_layout_18_56_25{}
+/*//////////////// COLONNE 2 \\\\\\\\\\\\\\\\*/
+#colonne-2, #middle-content-override{
+    padding: 5px;
+
+}
+.col2_layout_200_570_200{
+    width: 570px;
+    float: left;
+}
+.col2_layout_330_all{}
+.col2_layout_18_56_25{}
+/*//////////////// COLONNE 3 \\\\\\\\\\\\\\\\*/
+#colonne-3{
+   padding: 3px;
+    
+}
+.col3_layout_200_570_200{
+     width: 200px;
+    float: left;
+}
+.col3_layout_330_all{}
+.col3_layout_18_56_25{}
+/*//////////////// BORDER COLONNE 1 \\\\\\\\\\\\\\\\*/
+
+/*//////////////// BORDER COLONNE 2 \\\\\\\\\\\\\\\\*/
+.rouge-bleu{ border-left: 1px solid #E2001A; border-right: 1px solid #00AAD2;}
+.rose-bleu { border-left: 1px solid #E2007A; border-right: 1px solid #00AAD2;}
+.noir-vert { border-left: 1px solid #606171; border-right: 1px solid #C8D215;}
+.bleu-violet { border-left: 1px solid #00AAD2; border-right: 1px solid #93117E;}
+.vert-violet { border-left: 1px solid #C8D215; border-right: 1px solid #93117E;}
+/*//////////////// BORDER COLONNE 3 \\\\\\\\\\\\\\\\*/
+
+  /*------------------------------------------------------*
+  *------------ CSS H  ----*
+  *------------------------------------------------------*/
+
+h1 {
+	margin: 0;
+	padding: 5px 0;
+	color:#606070;
+	font-size: 24px;
+        line-height:1em;
 }
 
-/* line 65, ../sass/layout.sass */
-.two-sidebars .center,
-.sidebar-second .center {
-  margin-right: 200px;
+h2 {
+	margin: 0;
+	padding: 0;
+	color:#000;
+	font-size: 18px;
+}
+h2.title{
+	margin: 5px;
+	padding: 0;
+	color:#000;
+	font-size: 18px;
+}
+h2.title a{
+	color:#EA5132;
+        text-decoration: none;
+}
+h2.title a:hover{
+	text-decoration: underline;
+}
+h3 {
+	margin: 0;
+	padding: 0;
+	color:#E3001B;
+	font-size: 16px;
+}
+h4 {
+	margin: 0;
+	padding: 0;
+	color:#000;
+	font-size: 14px;
+}
+h5 {
+	margin: 0;
+	padding: 0;
+	color:#000;
+	font-size: 12px;
+}
+h6 {
+	margin: 0;
+	padding: 0;
+	color:#000;
+	font-size: 10px;
 }
 
-/* line 69, ../sass/layout.sass */
-#sidebar-second {
-  width: 200px;
+/*COULEUR DU H1 et autre titre*/
+.rouge {color: #E2001A;}
+.orange {color: #F29400;}
+.vert {color: #C8D215;}
+.bleu {color: #00AAD2;}
+.rose {color: #E2007A;}
+.violet {color: #93117E;}
+/*-----FIN LAYOUT DE BASE ET OPTIONS-----------*/
+/***************************************/
+
+/* LAYOUT PAGE BASE 2 COLONNES*/
+#content-inner-base2col{
+    width:710px;
+    margin:0 auto;
+    float:left;
+    background-color: white;
 }
 
-/* Columns Inner
- * -------------
- * You can change the padding inside the columns without changing the
- * width of them by just usinbg the INNER div of each column */
-/* line 76, ../sass/layout.sass */
-.inner {
-  padding: 0;
+#middle-content-base2col{
+    	float:left;
+	position:relative;
+	background-color:transparent;
+	width:710px !important;
+        width: 710px ;
+	padding:5px;
+        margin: 0 auto;
+        border-right: 1px solid #11B0D5;
 }
 
-/* Navigation styles
- * -----------------
- * The navigation is loaded after the content, so we need to make space
- * for it, equal to its height, so if you change the height of the navigation,
- * remember to adapt the margin top of the content and sidebars. */
-/* line 84, ../sass/layout.sass */
-#navigation {
-  float: left;
-  margin-left: 0;
-  margin-right: -100%;
-  padding: 0;
-  width: 100%;
-  height: 40px;
+#right-content-base2col{
+        float:right;
+	position:relative;
+	background-color:transparent;
+	width:235px;
+	right:0px;
 }
-
-/* line 94, ../sass/layout.sass */
-.with-navigation #content,
-.with-navigation .sidebar {
-  margin-top: 40px;
+/*---------------------------------------------------
+LAYOUT POUR NODE.TPL WEBFORM
+---------------------------------------------------*/
+.colG1_webform{
+   
 }
-
-/* Layout
- * ------
- * Using a negative margin technique, adapted from ZEN. The page is loaded by this order:
- *
- * 1. Header
- * 2. Content
- * 3. Navigation menus
- * 4. Sidebar Left
- * 5. Sideabr Right */
-/* remove 'auto' and the width to switch to a fluid width */
-/* line 111, ../sass/layout.sass */
-#page {
-  width: 960px;
-  margin: 0 auto;
+.colG2_webform{
+   
 }
-
-/* Layout rules. (Disclaimer: do not change if you're not sure you know what you're doing.) */
-/* line 116, ../sass/layout.sass */
-#content {
-  float: left;
-  width: 100%;
-  margin-right: -100%;
-  padding: 0;
-}
-
-/* line 122, ../sass/layout.sass */
-.sidebar {
-  float: left;
-}
-
-/* line 125, ../sass/layout.sass */
-#sidebar-second {
-  float: right;
-}
-
-/* line 128, ../sass/layout.sass */
-#footer {
-  float: none;
-  clear: both;
-}
-
-/* Layout Helpers */
-/* line 133, ../sass/layout.sass */
-#header,
-#footer,
-.mission,
-.breadcrumb,
-.node {
-  clear: both;
-}
-
-/* Sidebars width
- * --------------
- * Changing the width of the sidebars is dead easy, just change the
- * values below corresponding to the sidebar you want to modify.
- * Make sure you keep negative values as negative values.
- * For example, if I want to increase the width of the left sidebar
- * to 300px, I would have to change each '190' to '300'. */
-/* line 151, ../sass/layout.sass */
-.two-sidebars .center,
-.sidebar-first .center {
-  margin-left: 190px;
-}
-
-/* line 155, ../sass/layout.sass */
-#sidebar-first {
-  width: 190px;
-  margin-right: -190px;
-}
-
-/* line 161, ../sass/layout.sass */
-.two-sidebars .center,
-.sidebar-second .center {
-  margin-right: 200px;
-}
-
-/* line 165, ../sass/layout.sass */
-#sidebar-second {
-  width: 200px;
-}
-
-/* Columns Inner
- * -------------
- * You can change the padding inside the columns without changing the
- * width of them by just usinbg the INNER div of each column */
-/* line 172, ../sass/layout.sass */
-.inner {
-  padding: 0;
-}
-
-/* Navigation styles
- * -----------------
- * The navigation is loaded after the content, so we need to make space
- * for it, equal to its height, so if you change the height of the navigation,
- * remember to adapt the margin top of the content and sidebars. */
-/* line 180, ../sass/layout.sass */
-#navigation {
-  float: left;
-  margin-left: 0;
-  margin-right: -100%;
-  padding: 0;
-  width: 100%;
-  height: 40px;
-}
-
-/* line 190, ../sass/layout.sass */
-.with-navigation #content,
-.with-navigation .sidebar {
-  margin-top: 40px;
-}
+.colG3_webform{}
