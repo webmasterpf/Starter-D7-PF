@@ -165,7 +165,7 @@ color: #000000;
 ---- LAYOUT POUR PAGE.TPL ET NODE.TPL OVERRIDE
 **********************************************
 -------------- GENERIQUE --------------------*/
-
+#skip, #skip a{color: white;}
 /*CUSTOM REGION DANS NODE.TPL*/
 #region_col_C1{
        padding: 3px;

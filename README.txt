@@ -15,14 +15,19 @@ EXEMPLE:
     <?php print render($page['footer_icons']); ?>
   </div> <!-- /.footer icons -->
 <?php endif; ?>
----------------------- INCLURE CONTENU D4UN CHAMP CCK -----------------------------------------
+---------------------- INCLURE CONTENU D'UN CHAMP CCK -----------------------------------------
 <?php
 /* inclure des champs CCK dans le node selon http://robotlikehuman.com/web/printing-cck-content-field-values-drupal-7
  * Ce qui donne pour D7
  */
 print render($content['field_EXAMPLE']);
 ?>
+==== Paramétrage d'un site Drupal 7 =====
 
+1- Régions via .info ; il faut aussi régler le fichier template.php et theme-settings.php
+2- Slogan du site : aller dans admin/config/system/site-information
+   Contenu de la page maintenant dans une région
+3- Superfish : choisir au cun style pour override par css custom
 -----------------------
 Template suggestions:
 -----------------------

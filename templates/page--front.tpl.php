@@ -6,10 +6,6 @@ include ($theme_path.'/includes/inc_header.php');
  <!-- ______________________ CONTENU _______________________ -->
     
 	<div id="mainPage">
-	
-     
-   
-
           <?php if ($page ['content_top']): ?>
             <div id="content-top">
               <?php print render ($page ['content_top']); ?>

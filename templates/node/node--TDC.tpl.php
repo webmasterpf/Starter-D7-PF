@@ -1,5 +1,5 @@
 <!--_____________ /////////\\\\\\\\\\\_____________________ -->
-<!--_____________  NODE.TPL PAGE LYCEE _____________________ -->
+<!--_____________  NODE.TPL PAGE CUSTOM _____________________ -->
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 	<div class="node-inner">
   
@@ -24,10 +24,12 @@
    * violet
          */?>
               <!-- ______________________ COLONNE C1 _______________________ -->
-        <div id="colonne-1" class="col1_layout_200_570_200">
-              <?php if ($title): ?>
-                <h1 class="title rouge"><?php print $title; ?></h1>
-              <?php endif; ?>
+        <div id="colonne-1" class="CHOIX_DU_LAYOUT">
+            <?php  print render($title_prefix); ?>
+         <?php if ($title): ?><h1 class="title rouge"><?php print $title; ?></h1><?php endif; ?>
+            <?php print render($title_suffix); ?>
+
+
 	 <?php //region colonne C1
 global $theme_path;
 include ($theme_path.'/includes/inc_region_col_C1.php');
@@ -45,7 +47,7 @@ include ($theme_path.'/includes/inc_region_col_C1.php');
       <span class="submitted"><?php print $date; ?> — <?php print $name; ?></span>
     <?php endif; ?>
 <!-- ______________________ COLONNE C2 _______________________ -->
- <div id="colonne-2" class="col2_layout_200_570_200 rouge-bleu">
+ <div id="colonne-2" class="CHOIX_DU_LAYOUT rouge-bleu">
   	  <?php 
   	    // We hide the comments and links now so that we can render them later.
         hide($content['comments']);
@@ -73,7 +75,7 @@ print render($content['field_fichier_joint']);
 </div> <!-- /colonne 2 -->
          <!-- ______________________ COLONNE C3 _______________________ -->
        
-           <div id="colonne-3" class="col3_layout_200_570_200">
+           <div id="colonne-3" class="CHOIX_DU_LAYOUT">
              <?php
 /* inclusion des termes de taxonomie associés
  * Nouveau dans  D7 - choisir si affiche nom du vocabulaire ou pas
