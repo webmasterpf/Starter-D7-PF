@@ -1,7 +1,7 @@
 <?php
-  global $theme_path;
-  include ($theme_path.'/includes/inc_header.php');
-  ?>
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
+include ($theme_path.'/includes/inc_header.php');
+?>
 
   <!-- ______________________ LAYOUT PAGE BASIQUE _______________________ -->
   <!-- ______________________ CONTENU _______________________ -->
@@ -88,8 +88,8 @@
 
 
   </div> <!-- /main -->
-     <?php
-global $theme_path;
+<?php
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
 include ($theme_path.'/includes/inc_footer.php');
 ?>
  

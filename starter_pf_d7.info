@@ -3,6 +3,7 @@
 name = Starter_PF_D7
 description = Theme de base pour developpement des themes PF pour Drupal 7.Inspired by Basic.
 screenshot = screenshot.png
+version = VERSION
 core = "7.x"
 ;project = "PF"
 engine = phptemplate

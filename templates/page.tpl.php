@@ -1,8 +1,7 @@
 <?php
-  global $theme_path;
-  include ($theme_path.'/includes/inc_header.php');
-  ?>
-
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
+include ($theme_path.'/includes/inc_header.php');
+?>
   <!-- ______________________ LAYOUT PAGE BASIQUE _______________________ -->
   <!-- ______________________ CONTENU _______________________ -->
 
@@ -12,21 +11,21 @@
               <!-- ______________________ CONTENT TOP _______________________ -->
       <?php if ($breadcrumb || ($page ['content_top']) ): ?>
             <div id="content-top">
-	<span id="ariane"> <?php print $breadcrumb; ?></span>
+	<span id="ariane"> 
+            <?php $breadcrumb = theme('breadcrumb', array('breadcrumb' => drupal_get_breadcrumb()));
+             print $breadcrumb; ?></span>
 
               <?php print render ($page ['content_top']); ?>
             </div>
               <?php endif; ?><!-- /#content-top -->
               <!-- Si besoin de colonne sans node custom tpl -->
-              <div id="left-content">
+              
+               <?php if (!empty($page ['left'])): ?>
+              <div id="left-content">  <?php print render ($page ['left']); ?>       </div>
+                <?php endif; ?>
         
-  
-	 <?php if ($page ['left']): ?>
-            <?php print render ($page ['left']); ?>
-	<?php endif; ?>
-          </div>
              	<!--fin du contenu gauche -->
-
+             	
       <div id="content-inner" class="inner column center">
 
         <?php if ($messages || $tabs || $action_links): ?>
@@ -34,7 +33,7 @@
 
           
 
-            <?php if ($page['highlight']): ?>
+         <?php if (!empty($page['highlight'])): ?>
               <div id="highlight"><?php print render($page['highlight']) ?></div>
             <?php endif; ?>
 
@@ -86,8 +85,8 @@
 
 
   </div> <!-- /main -->
-     <?php
-global $theme_path;
+          <?php
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
 include ($theme_path.'/includes/inc_footer.php');
 ?>
  

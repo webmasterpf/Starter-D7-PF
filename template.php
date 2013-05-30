@@ -199,3 +199,12 @@ function Starter_PF_D7_menu_local_tasks(&$variables) {
   return $output;
 
 }
+/**
+     * Override or insert variables into the html template.Donne le page title
+     */
+    function Starter_PF_D7_preprocess_html(&$vars) {
+      global $theme_path;
+      // Add conditional CSS for IE7 and below.
+      drupal_add_css($theme_path . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+      $vars['head_title'] = implode(' | ', array(drupal_get_title(), variable_get('site_name'), variable_get('site_slogan')));  
+    }

@@ -57,10 +57,16 @@ include ($theme_path.'/includes/inc_region_col_C1.php');
   <div class="content">
     <table>
     <tr>
-    <td><?php  print render($content['body']); ?></td>
+    <td><?php 
+  	    // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print render($content['body']);
+       ?></td>
     </tr>
     <tr>
-    <td><?php  print render($content['webform']); ?></td>
+    <td><?php  webform_node_view($node,'full');
+print theme_webform_view($node->content); ?></td>
     </tr>
     </table>
   </div>

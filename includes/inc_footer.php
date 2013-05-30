@@ -8,7 +8,7 @@
 <!-- ______________________ FOOTER _______________________ -->
 <?php if ($page['footer']): ?>
     <div id="footer">
-      <?php print render($page['footer']); ?>
+      <?php print render ($page['footer']); ?>
     </div> <!-- /footer -->
   <?php endif; ?>
   <div id="bloc_stats">

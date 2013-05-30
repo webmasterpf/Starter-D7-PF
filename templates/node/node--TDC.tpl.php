@@ -31,11 +31,11 @@
 
 
 	 <?php //region colonne C1
-global $theme_path;
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
 include ($theme_path.'/includes/inc_region_col_C1.php');
 ?>
-          </div>
-             	<!--fin du contenu gauche -->
+          </div><!--_/C1_ -->
+             	
 
     <?php if (!$page): ?>
       <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
@@ -55,14 +55,16 @@ include ($theme_path.'/includes/inc_region_col_C1.php');
         print render($content['body']);
        ?>
   	
-
+ <?php if (!empty($content['field_fichier_joint'])): ?>
+     <div class="CLASSE_DIV">
 <?php
 /* inclure des champs CCK dans le node selon http://robotlikehuman.com/web/printing-cck-content-field-values-drupal-7
  * Ce qui donne pour D7
  */
 print render($content['field_fichier_joint']);
 ?>
-
+         </div>
+<?php endif; ?>
 
   	
     <?php if (!empty($content['links']['terms'])): ?>
@@ -72,7 +74,7 @@ print render($content['field_fichier_joint']);
     <?php if (!empty($content['links'])): ?>
 	    <div class="links"><?php print render($content['links']); ?></div>
 	  <?php endif; ?>
-</div> <!-- /colonne 2 -->
+</div> <!--_/C2_ -->
          <!-- ______________________ COLONNE C3 _______________________ -->
        
            <div id="colonne-3" class="CHOIX_DU_LAYOUT">
@@ -84,17 +86,23 @@ print render($content['taxonomy_vocabulary_1']);
 ?>
 
   <?php //inclusion d'une vue via php
-global $theme_path;
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
 include ($theme_path.'/includes/inc_vue_generik_tpl.php');
 ?>
 
             <?php //region colonne C3
-global $theme_path;
+$theme_path = drupal_get_path('theme', 'NOM_THEME');
 include ($theme_path.'/includes/inc_region_col_C3.php');
 ?>
 
-        </div>
-         
+        </div><!--_/C3_ -->
+         <?php if (!empty($content['links']['terms'])): ?>
+      <div class="terms"><?php print render($content['links']['terms']); ?></div>
+    <?php endif;?>
+  	
+    <?php if (!empty($content['links'])): ?>
+	    <div class="links"><?php print render($content['links']); ?></div>
+	  <?php endif; ?>
         
 	</div> <!-- /node-inner -->
 </div> <!-- /node-->
